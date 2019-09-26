@@ -443,6 +443,7 @@ module.exports = function(webpackEnv) {
                 sourceMap: isEnvProduction && shouldUseSourceMap,
                 modules: true,
                 getLocalIdent: getCSSModuleLocalIdent,
+                localIndentName: '[name]__[local]__[hash:base64:5]'
               }),
             },
             // Opt-in support for SASS (using .scss or .sass extensions).
@@ -466,7 +467,7 @@ module.exports = function(webpackEnv) {
             },
             // Adds support for CSS Modules, but using SASS
             // using the extension .module.scss or .module.sass
-            {
+            { 
               test: sassModuleRegex,
               use: getStyleLoaders(
                 {
